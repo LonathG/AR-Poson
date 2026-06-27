@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Magic Lantern #1 - WebAR Experience</title>
-  
+
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Step into a magical WebAR experience and summon Magic Lantern #1 right in your space using Google Model Viewer.">
-  
+  <meta name="description"
+    content="Step into a magical WebAR experience and summon Magic Lantern #1 right in your space using Google Model Viewer.">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet">
 
   <!-- Model Viewer CDN -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
@@ -77,12 +81,15 @@
         transform: translateY(105vh) translateX(0) scale(0);
         opacity: 0;
       }
+
       10% {
         opacity: 1;
       }
+
       90% {
         opacity: 1;
       }
+
       100% {
         transform: translateY(-10vh) translateX(100px) scale(1.5);
         opacity: 0;
@@ -110,9 +117,11 @@
       0% {
         transform: translateY(10px);
       }
+
       50% {
         transform: translateY(-25px);
       }
+
       100% {
         transform: translateY(10px);
       }
@@ -201,9 +210,17 @@
     }
 
     @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
     }
 
     /* AR Presentation Modes - Hide standard UI */
@@ -216,7 +233,8 @@
     body.ar-active .particle {
       opacity: 0;
       pointer-events: none;
-      transform: translate(-50%, 20px); /* slide overlay out */
+      transform: translate(-50%, 20px);
+      /* slide overlay out */
     }
 
     /* Custom model-viewer AR Button (Required but hidden because we trigger it programmatically) */
@@ -225,6 +243,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Background Glow & Particle Effects -->
@@ -232,22 +251,11 @@
 
   <!-- Floating Container for Model-Viewer -->
   <div class="viewer-container float-animation">
-    <model-viewer 
-      id="lantern-viewer" 
-      src="models/lantern1.glb" 
-      ios-src="models/lantern1.usdz" 
-      ar 
-      ar-modes="webxr scene-viewer quick-look" 
-      camera-controls 
-      auto-rotate
-      auto-rotate-delay="0"
-      interaction-prompt="none"
-      shadow-intensity="1.5" 
-      shadow-softness="1"
-      disable-pan
-      disable-zoom
+    <model-viewer id="lantern-viewer" src="models/lantern1.glb" ios-src="models/lantern1.usdc" ar
+      ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate auto-rotate-delay="0"
+      interaction-prompt="none" shadow-intensity="1.5" shadow-softness="1" disable-pan disable-zoom
       alt="Magic Lantern #1 Floating in 3D Space">
-      
+
       <!-- Required slot element for <model-viewer> to link to its internal trigger -->
       <button slot="ar-button" id="hidden-ar-button"></button>
     </model-viewer>
@@ -257,7 +265,8 @@
   <div class="ui-overlay">
     <div>
       <h1 class="title">Magic Lantern #1</h1>
-      <p class="instructions">Point your camera at the ground and press the button below to bring the magic lantern to life in your space.</p>
+      <p class="instructions">Point your camera at the ground and press the button below to bring the magic lantern to
+        life in your space.</p>
     </div>
     <button id="custom-ar-trigger" class="ar-btn">
       <span class="btn-icon">✨</span> Enter WebAR
@@ -324,4 +333,5 @@
     });
   </script>
 </body>
+
 </html>
