@@ -250,7 +250,7 @@
   <div class="background-glow"></div>
 
   <!-- Floating Container for Model-Viewer -->
-  <div class="viewer-container float-animation">±
+  <div class="viewer-container float-animation">
     <model-viewer id="lantern-viewer" src="models/lantern1.glb" ios-src="models/lantern1.usdz" ar
       ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate auto-rotate-delay="0"
       interaction-prompt="none" shadow-intensity="1.5" shadow-softness="1" disable-pan disable-zoom
@@ -328,6 +328,10 @@
           document.body.classList.add('ar-active');
         } else if (event.detail.status === 'not-presenting') {
           document.body.classList.remove('ar-active');
+          // Resume auto-rotation after exiting AR view
+          setTimeout(() => {
+            viewer.autoRotate = true;
+          }, 100);
         }
       });
     });
